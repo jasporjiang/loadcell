@@ -1,11 +1,11 @@
 #include "loadcell/loadcell.h"
 
-loadcell::loadcell(TwoWire& wirePortRef) {
+LoadCell::LoadCell(TwoWire& wirePortRef) {
     wirePort = &wirePortRef;
     zeroReading = 0;
 }
 
-void loadcell::begin() {
+void LoadCell::begin() {
     wirePort->begin();
     wirePort->setClock(400000); // 400kHz I2C
 
@@ -32,7 +32,7 @@ void loadcell::begin() {
     Serial.println(zeroReading);
 }
 
-double loadcell::getForce() {
+double LoadCell::getForce() {
     if (scale.available()) {
         int32_t currentReading = scale.getReading();
         int32_t difference = currentReading - zeroReading;

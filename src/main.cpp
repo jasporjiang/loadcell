@@ -1,5 +1,5 @@
 #include <Arduino.h>
-#include "LoadCell/loadcell.h"
+#include "loadcell/loadcell.h"
 
 LoadCell loadCell;
 
